@@ -185,4 +185,4 @@ Public STUN alone will fail to connect roughly 10-20% of real-world users (corpo
 
 ## License
 
-MIT — feel free to adapt ConnectX for your own projects.
+MIT — feel free to adapt ATTI for your own projects.
