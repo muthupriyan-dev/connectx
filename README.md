@@ -1,4 +1,4 @@
-# ConnectX ⚡
+# ATTI⚡
 
 Anonymous, secure random video chat platform built with **WebRTC**, **Node.js**, **Express**, and **Socket.IO**.
 
@@ -9,7 +9,7 @@ Anonymous, secure random video chat platform built with **WebRTC**, **Node.js**,
 - 🎥 Random video, audio, and text-only chat matching
 - ⏭️ Instant skip / 📞 leave
 - 💬 Live text chat with typing indicator, timestamps, auto-scroll
-- 🎤 Mic toggle, 📹 camera toggle, 🔄 camera switch, ⛶ fullscreen, 🗗 Picture-in-Picture
+- 🎤 Mic toggle, 📹 camera toggle, 🔄 camera switch, 🔳 fullscreen, 📱 Picture-in-Picture
 - 🌗 Dark/light theme, glassmorphism UI, smooth animations
 - 🚩 Report & 🚫 Block tools, anonymous auto-generated usernames
 - 🔒 Helmet, CORS, HTTP + Socket-level rate limiting, XSS-safe input handling
