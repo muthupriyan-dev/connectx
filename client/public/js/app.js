@@ -32,7 +32,7 @@
   UI.initRoomIdCopy();
   UI.initReportModal((reason) => {
     SocketClient.emit('report-user', { reason });
-    UI.showToast('Report submitted. Thank you for keeping ConnectX safe.', 'success');
+    UI.showToast('Report submitted. Thank you for keeping ATTI safe.', 'success');
   });
   Chat.init();
   WebRTC.loadIceConfig();
