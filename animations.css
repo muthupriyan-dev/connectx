@@ -1,0 +1,149 @@
+/* =========================================================
+   ConnectX — animations.css
+   All keyframes and transition-only rules live here, separate
+   from layout/theme styles in style.css.
+   ========================================================= */
+
+/* ---------- Screen transitions ---------- */
+.screen {
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Floating background orbs ---------- */
+.orb {
+  animation: floatOrb 12s ease-in-out infinite;
+}
+.orb-2 { animation-duration: 16s; animation-delay: -3s; }
+.orb-3 { animation-duration: 20s; animation-delay: -6s; }
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.08); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* ---------- Buttons ---------- */
+.btn, .icon-btn, .control-btn, .chip-btn {
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+
+/* ---------- Hero entrance ---------- */
+.hero { animation: heroRise 0.6s ease; }
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.feature-card { animation: fadeIn 0.5s ease both; }
+.feature-card:nth-child(2) { animation-delay: 0.08s; }
+.feature-card:nth-child(3) { animation-delay: 0.16s; }
+
+/* ---------- Online pulse dot ---------- */
+.pulse-dot {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+/* ---------- Radar (searching screen) ---------- */
+.radar-sweep {
+  animation: radarSpin 2.4s linear infinite;
+}
+@keyframes radarSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.radar-dot {
+  animation: radarDotPulse 1.6s ease-in-out infinite;
+}
+@keyframes radarDotPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-2); }
+  50% { box-shadow: 0 0 20px 6px var(--accent-2); }
+}
+
+/* Animated ellipsis dots on "Finding someone..." */
+.dots span {
+  animation: dotBlink 1.4s infinite;
+  opacity: 0;
+}
+.dots span:nth-child(1) { animation-delay: 0s; }
+.dots span:nth-child(2) { animation-delay: 0.2s; }
+.dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotBlink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+/* ---------- Connection status dot ---------- */
+.status-dot.connecting {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+/* ---------- Video stage ---------- */
+.local-wrapper {
+  animation: popIn 0.4s ease;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+.video-controls {
+  animation: slideUp 0.4s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ---------- Chat messages ---------- */
+.message-bubble {
+  animation: bubbleIn 0.25s ease;
+}
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Toasts ---------- */
+.toast {
+  animation: toastSlide 0.3s ease;
+}
+@keyframes toastSlide {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.toast.leaving {
+  animation: toastFade 0.25s ease forwards;
+}
+@keyframes toastFade {
+  to { opacity: 0; transform: translateX(40px); }
+}
+
+/* ---------- Sidebar slide (mobile) ---------- */
+.chat-sidebar {
+  transition: transform 0.3s ease;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  animation: modalPop 0.25s ease;
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Reduced motion accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+<title>ConnectX — Anonymous Random Video Chat</title>
+<meta name="description" content="ConnectX - Meet new people instantly through anonymous, secure random video chat." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/animations.css" />
+</head>
+<body data-theme="dark">
+
+  <!-- ===================== LANDING SCREEN ===================== -->
+  <section id="landing-screen" class="screen active">
+    <div class="bg-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">⚡</span>
+        <span class="brand-name">ConnectX</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="online-pill" id="online-pill">
+          <span class="pulse-dot"></span>
+          <span id="online-count">0</span> online
+        </span>
+        <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="hero glass-card">
+      <h1 class="hero-title">Meet the world, <span class="gradient-text">one face at a time.</span></h1>
+      <p class="hero-subtitle">
+        Anonymous, instant, and secure random video chat. No sign-up. No profiles. Just conversations.
+      </p>
+
+      <div class="hero-actions">
+        <button id="join-video-btn" class="btn btn-primary btn-lg">
+          <span class="btn-icon">🎥</span> Start Video Chat
+        </button>
+        <button id="join-text-btn" class="btn btn-secondary btn-lg">
+          <span class="btn-icon">💬</span> Text Only
+        </button>
+      </div>
+
+      <div class="hero-preview">
+        <video id="landing-preview" autoplay muted playsinline></video>
+        <p class="preview-hint" id="preview-hint">Camera preview will appear here</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🔒</span>
+          <h3>Private by Design</h3>
+          <p>Fully anonymous usernames. No data stored beyond your session.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3>Instant Matching</h3>
+          <p>Get connected to a new person in seconds, worldwide.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🛡️</span>
+          <h3>Safety First</h3>
+          <p>Report and block tools keep the community respectful.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="landing-footer">
+      <p>ConnectX &copy; 2026 — By joining, you agree to be respectful. 18+ only.</p>
+    </footer>
+  </section>
+
+  <!-- ===================== SEARCHING SCREEN ===================== -->
+  <section id="searching-screen" class="screen">
+    <div class="searching-content glass-card">
+      <div class="radar">
+        <div class="radar-sweep"></div>
+        <div class="radar-dot"></div>
+      </div>
+      <h2>Finding someone for you<span class="dots"><span>.</span><span>.</span><span>.</span></span></h2>
+      <p class="searching-sub">Hang tight — this usually takes a few seconds</p>
+      <button id="cancel-search-btn" class="btn btn-danger-outline">Cancel</button>
+    </div>
+  </section>
+
+  <!-- ===================== CHAT SCREEN ===================== -->
+  <section id="chat-screen" class="screen">
+    <header class="chat-topbar">
+      <div class="brand small">
+        <span class="brand-mark">⚡</span>
+        <span class="brand-name">ConnectX</span>
+      </div>
+      <div class="chat-status">
+        <span class="status-dot connected" id="connection-status-dot"></span>
+        <span id="connection-status-text">Connecting…</span>
+        <span class="partner-name" id="partner-name-label"></span>
+      </div>
+      <div class="chat-topbar-actions">
+        <span class="room-id-chip" id="room-id-chip" title="Copy Room ID">
+          Room: <span id="room-id-text">—</span> <span class="copy-icon">📋</span>
+        </span>
+        <button id="theme-toggle-chat" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="chat-main">
+      <!-- Video area -->
+      <div class="video-stage">
+        <div class="video-wrapper remote-wrapper">
+          <video id="remote-video" autoplay playsinline></video>
+          <div class="remote-placeholder" id="remote-placeholder">
+            <span class="placeholder-avatar">👤</span>
+            <p>Waiting for partner's video…</p>
+          </div>
+          <div class="video-badge">Stranger</div>
+        </div>
+
+        <div class="video-wrapper local-wrapper" id="local-wrapper">
+          <video id="local-video" autoplay muted playsinline></video>
+          <div class="video-badge">You</div>
+        </div>
+
+        <!-- Floating controls -->
+        <div class="video-controls glass-card">
+          <button id="toggle-mic-btn" class="control-btn active" title="Toggle Microphone" aria-label="Toggle Microphone">🎤</button>
+          <button id="toggle-cam-btn" class="control-btn active" title="Toggle Camera" aria-label="Toggle Camera">📹</button>
+          <button id="switch-cam-btn" class="control-btn" title="Switch Camera" aria-label="Switch Camera">🔄</button>
+          <button id="skip-btn" class="control-btn skip-btn" title="Skip (Next)" aria-label="Skip">⏭️ Skip</button>
+          <button id="leave-btn" class="control-btn leave-btn" title="Leave" aria-label="Leave">📞 Leave</button>
+          <button id="fullscreen-btn" class="control-btn" title="Fullscreen" aria-label="Fullscreen">⛶</button>
+          <button id="pip-btn" class="control-btn" title="Picture-in-Picture" aria-label="Picture in Picture">🗗</button>
+        </div>
+
+        <div class="moderation-controls">
+          <button id="report-btn" class="chip-btn" title="Report this user">🚩 Report</button>
+          <button id="block-btn" class="chip-btn" title="Block this user">🚫 Block</button>
+        </div>
+      </div>
+
+      <!-- Chat sidebar -->
+      <aside class="chat-sidebar glass-card" id="chat-sidebar">
+        <div class="sidebar-header">
+          <h3>Live Chat</h3>
+          <button id="close-sidebar-btn" class="icon-btn mobile-only" aria-label="Close chat">✕</button>
+        </div>
+        <div class="messages-container" id="messages-container">
+          <div class="system-message">You're now chatting with a stranger. Say hi! 👋</div>
+        </div>
+        <div class="typing-indicator" id="typing-indicator" hidden>Stranger is typing…</div>
+        <form id="chat-form" class="chat-input-row" autocomplete="off">
+          <input
+            id="chat-input"
+            type="text"
+            placeholder="Type a message…"
+            maxlength="500"
+            aria-label="Chat message"
+          />
+          <button type="submit" class="send-btn" aria-label="Send message">➤</button>
+        </form>
+      </aside>
+
+      <button id="open-sidebar-btn" class="fab mobile-only" aria-label="Open chat">💬</button>
+    </main>
+  </section>
+
+  <!-- ===================== TOASTS / NOTIFICATIONS ===================== -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- ===================== REPORT MODAL ===================== -->
+  <div id="report-modal" class="modal-overlay" hidden>
+    <div class="modal glass-card">
+      <h3>Report this user</h3>
+      <p>Tell us what happened. Our team reviews every report.</p>
+      <textarea id="report-reason" maxlength="300" placeholder="Describe the issue…"></textarea>
+      <div class="modal-actions">
+        <button id="report-cancel-btn" class="btn btn-secondary">Cancel</button>
+        <button id="report-submit-btn" class="btn btn-danger">Submit Report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Socket.IO client (served automatically by the Socket.IO server) -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/socket-client.js"></script>
+  <script src="/js/webrtc.js"></script>
+  <script src="/js/chat.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
