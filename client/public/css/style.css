@@ -552,22 +552,64 @@ body {
 @media (max-width: 900px) {
   .feature-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 30px; }
-  .chat-main { grid-template-columns: 1fr; }
+
+  .chat-main {
+    display: block;
+    height: calc(100vh - 64px);
+    position: relative;
+  }
+
+  .video-stage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
   .chat-sidebar {
+    display: flex;
     position: fixed;
     inset: 0 0 0 auto;
-    width: 85%;
+    width: 90%;
     max-width: 360px;
+    height: 100%;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 50;
   }
   .chat-sidebar.open { transform: translateX(0); }
+
   .fab { display: flex; align-items: center; justify-content: center; }
   .mobile-only { display: flex; }
-  .local-wrapper { width: 120px; bottom: 90px; right: 14px; }
-  .video-controls { bottom: 14px; gap: 6px; padding: 10px; }
-  .control-btn { padding: 8px 10px; font-size: 12px; }
+
+  .local-wrapper { width: 110px; bottom: 120px; right: 12px; }
+
+  /* Bigger, clearer control buttons */
+  .video-controls {
+    bottom: 16px;
+    gap: 8px;
+    padding: 10px 12px;
+    max-width: 96%;
+  }
+  .control-btn {
+    min-width: 52px;
+    min-height: 52px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 14px;
+    justify-content: center;
+  }
+  .control-btn.skip-btn,
+  .control-btn.leave-btn {
+    min-width: 64px;
+    font-size: 14px;
+    gap: 4px;
+  }
+
+  .moderation-controls {
+    top: 14px;
+    right: 14px;
+  }
+  .chip-btn { font-size: 13px; padding: 8px 14px; }
 }
 @media (min-width: 901px) {
   .mobile-only { display: none; }
