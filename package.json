@@ -1,7 +1,7 @@
 {
-  "name": "connectx",
+  "name": "atti",
   "version": "1.0.0",
-  "description": "ConnectX - Anonymous random video chat platform built with WebRTC, Node.js, Express and Socket.IO",
+  "description": "ATTI - Anonymous random video chat platform built with WebRTC, Node.js, Express and Socket.IO",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -16,7 +16,7 @@
     "nodejs",
     "express"
   ],
-  "author": "ConnectX Team",
+  "author": "ATTI Team",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
